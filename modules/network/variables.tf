@@ -27,5 +27,3 @@ variable "az" {
   description = "Availability Zone for subnets"
   type        = string
 }
-
-

@@ -14,4 +14,3 @@ output "sdn_dcgw_subnet_id" {
   description = "Subnet ID for SDN-DCGW interconnect"
   value       = aws_subnet.sdn_dcgw_interconnect.id
 }
-

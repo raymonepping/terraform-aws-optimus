@@ -1,13 +1,15 @@
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
+
   tags = {
-    Name = var.vpc_name
+    Name        = var.vpc_name
     ProjectName = var.project_name
   }
 }
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
+
   tags = {
     Name = "${var.vpc_name}-igw"
   }
@@ -18,8 +20,9 @@ resource "aws_subnet" "public" {
   cidr_block              = var.public_subnet_cidr
   availability_zone       = var.az
   map_public_ip_on_launch = true
+
   tags = {
-    Name = "${var.vpc_name}-public-subnet"
+    Name        = "${var.vpc_name}-public-subnet"
     ProjectName = var.project_name
   }
 }
@@ -29,6 +32,7 @@ resource "aws_subnet" "sdn_dcgw_interconnect" {
   cidr_block              = var.sdn_dcgw_subnet_cidr
   availability_zone       = var.az
   map_public_ip_on_launch = false
+
   tags = {
     Name        = "${var.vpc_name}-sdn-dcgw-interconnect"
     ProjectName = var.project_name
@@ -70,7 +74,7 @@ resource "aws_security_group" "ssh" {
   }
 
   tags = {
-    Name = "ssh-access"
+    Name        = "ssh-access"
     ProjectName = var.project_name
   }
 }
