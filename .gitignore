@@ -7,4 +7,4 @@ crash.log
 *.tfplan
 *.backup
 .terraform.lock.hcl
-
+git_commit.sh
